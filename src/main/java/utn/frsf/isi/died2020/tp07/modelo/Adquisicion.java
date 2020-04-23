@@ -10,9 +10,7 @@ public class Adquisicion {
 	private Double precio;
 	private Boolean debitado;
 
-	public Adquisicion() {
-		
-	}
+	public Adquisicion() {}
 	
 	public Adquisicion(Material material, LocalDateTime fecha, Double precio) {
 		super();

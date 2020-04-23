@@ -16,7 +16,7 @@ import utn.frsf.isi.died2020.tp07.modelo.Video;
 
 public class Registro {
 	
-	public enum Plan { GRATIS,BASE,PREMIUM};
+	public enum Plan { GRATIS,BASE,PREMIUM };
 	private Set<Usuario> usuarios = new LinkedHashSet<>();
 		
 }

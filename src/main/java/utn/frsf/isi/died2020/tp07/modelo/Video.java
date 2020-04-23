@@ -1,7 +1,9 @@
 package utn.frsf.isi.died2020.tp07.modelo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Video  extends Material {
 	
@@ -27,7 +29,7 @@ public class Video  extends Material {
 
 	@Override
 	public Double rating() {
-		return 0.0;
+		return 0.45*calificacion + 0.35*adquisiciones.size()*duracion + 0.15*this.precioPromedio();	
 	}
 	
 	@Override

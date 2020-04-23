@@ -15,10 +15,10 @@ public class Usuario {
 	
 	private List<Adquisicion> adquisiciones;
 	
-	public void adquirir(Material material) {
+	public void adquirir(Material material) {}
 
-	}
-
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

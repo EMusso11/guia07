@@ -43,9 +43,9 @@ public abstract class Material implements Comparable<Material>{
 	 * y luego por fecha de publicación.
 	 * Debe aparecer primero el  que esté antes alfabeticamente ignorando
 	 * mayusculas y minusculas.
-	 * EN caso de igualdad, se ordena por fecha más reciente de publicacion.
+	 * En caso de igualdad, se ordena por fecha más reciente de publicacion.
 	 */
-	@Override
+//	@Override
 	public final int compareTo(Material o) {
 		int compPorTitulo = this.titulo.toUpperCase().compareTo(o.titulo.toUpperCase());
 		if(compPorTitulo == 0) {

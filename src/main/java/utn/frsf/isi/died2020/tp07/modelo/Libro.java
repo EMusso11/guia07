@@ -1,7 +1,9 @@
 package utn.frsf.isi.died2020.tp07.modelo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Libro extends Material{
 
@@ -37,7 +39,11 @@ public class Libro extends Material{
 	
 	@Override
 	public Double rating() {
-		return 0.0;
+		List<Adquisicion> list = new ArrayList<Adquisicion>();
+		list = adquisiciones.stream()
+							.filter(l -> l.getPagado() == true)
+							.collect(Collectors.toList());
+		return 0.50*calificacion + 0.35*list.size() + 0.15*this.precioPromedio()*paginas;	
 	}
 	
 	@Override

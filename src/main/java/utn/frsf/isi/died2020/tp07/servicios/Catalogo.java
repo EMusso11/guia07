@@ -132,7 +132,7 @@ public class Catalogo {
 	}
 
 	
-	private Comparator<Material> getCriterio(CriterioOrdenamiento criterio) {
+	private Comparator<Material> getCriterio(CriterioOrdenamiento criterio) { //buscar por otros criterios
 		return null;
 	}
 	
