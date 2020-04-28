@@ -38,22 +38,26 @@ public class Libro extends Material{
 	}
 	
 	@Override
+	public Double costo(Usuario usuario) {
+		return usuario.getCostoLibro().apply(usuario, this);
+	}
+
+	@Override
+	public Boolean puedeAdquirir(Usuario usuario) {
+		return usuario.getPuedeAdquirirLibro().test(usuario);
+	}
+
+	@Override
 	public Double rating() {
 		List<Adquisicion> list = new ArrayList<Adquisicion>();
 		list = adquisiciones.stream()
 							.filter(l -> l.getPagado() == true)
 							.collect(Collectors.toList());
-		return 0.50*calificacion + 0.35*list.size() + 0.15*this.precioPromedio()*paginas;	
+		double precioPromedio = this.adquisiciones.stream()
+										.filter(a -> a.getMaterial() instanceof Libro)
+										.mapToDouble(l -> l.getPrecio())
+										.sum();
+		return 0.50*calificacion + 0.35*list.size() + 0.15*precioPromedio*paginas;
 	}
 	
-	@Override
-	public Double costo(Usuario usuario) {
-		return 0.0;
-	}
-
-	@Override
-	public Boolean puedeAdquirir(Usuario usuario) {
-		return false;
-	}
-
 }

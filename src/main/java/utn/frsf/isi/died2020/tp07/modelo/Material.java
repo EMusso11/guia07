@@ -38,6 +38,17 @@ public abstract class Material implements Comparable<Material>{
 	
 	public abstract Double rating();
 	
+//	public Double costoTransformadoAMoneda(tipoMoneda moneda){
+//		switch(moneda){
+//		case DOLLAR :
+//			return;
+//			break;
+//		case YEN :
+//			return;
+//			break;
+//		}
+//	}
+	
 	/**
 	 * La comparación entre 2 materiales primero se realiza por titulo
 	 * y luego por fecha de publicación.

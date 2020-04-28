@@ -29,17 +29,21 @@ public class Video  extends Material {
 
 	@Override
 	public Double rating() {
-		return 0.45*calificacion + 0.35*adquisiciones.size()*duracion + 0.15*this.precioPromedio();	
+		double precioPromedio = this.adquisiciones.stream()
+				.filter(a -> a.getMaterial() instanceof Libro)
+				.mapToDouble(l -> l.getPrecio())
+				.sum();
+		return 0.45*calificacion + 0.35*adquisiciones.size()*duracion + 0.15*precioPromedio;	
 	}
 	
 	@Override
 	public Double costo(Usuario usuario) {
-		return 0.0;
+		return usuario.getCostoVideo().apply(usuario, this);
 	}
 
 	@Override
 	public Boolean puedeAdquirir(Usuario usuario) {
-		return false;
+		return usuario.getPuedeAdquirirVideo().test(usuario);
 	}
 
 }
